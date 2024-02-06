@@ -32,10 +32,14 @@ const ModalOpening = ({ isOpen, onClose }: ModalOpeningProps) => {
               rounded={"lg"}
               overflow={"hidden"}
             >
-              <Image src="" alt="" objectFit={"cover"} />
+              <Image
+                src="https://i.ibb.co/W3D3hw3/8.jpg"
+                alt=""
+                width={"100%"}
+              />
             </Box>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat,
-            exercitationem.
+            We are pleased to invite you to be part of this special moment in
+            our lives as we celebrate the sacred bond between us
           </ModalBody>
 
           <ModalFooter>

@@ -28,7 +28,7 @@ const GalleryOnePhoto = () => {
               zIndex={10}
               left={{ base: -130, xl: 0 }}
             >
-              <Image src="" alt="" />
+              <Image src="https://i.ibb.co/W63RbpQ/2.jpg" alt="" />
             </Box>
             <Box
               h={{ base: 200, xl: 300 }}
@@ -50,7 +50,7 @@ const GalleryOnePhoto = () => {
               zIndex={10}
               left={{ base: "-50px", xl: "-150px" }}
             >
-              <Image src="" alt="" />
+              <Image src="https://i.ibb.co/D9JQ32y/4.jpg" alt="" />
             </Box>
             <Box
               h={{ base: 300, xl: 450 }}
@@ -71,8 +71,14 @@ const GalleryOnePhoto = () => {
               position={"absolute"}
               zIndex={10}
               right={{ base: "-90px", xl: "0" }}
+              overflow={"hidden"}
             >
-              <Image src="" alt="" />
+              <Image
+                src="https://i.ibb.co/Gs5Dd8t/10.jpg"
+                alt=""
+                width={"100%"}
+                objectPosition={"50% 100%"}
+              />
             </Box>
             <Box
               h={{ base: 200, xl: 300 }}

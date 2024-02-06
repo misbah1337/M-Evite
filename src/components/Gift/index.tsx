@@ -34,7 +34,7 @@ const Gift = () => {
           />
           <Text whiteSpace={"pre-wrap"} textAlign={"center"} mt={3}>
             Raka Gumilang {"\n"}
-            4047239841
+            783947891847565
           </Text>
           <Button
             rounded={"none"}

@@ -8,8 +8,8 @@ import {
   Stack,
   Text,
   VStack,
+  Image,
 } from "@chakra-ui/react";
-import Image from "next/image";
 
 const BrideGroom = () => {
   return (
@@ -36,8 +36,13 @@ const BrideGroom = () => {
             h={{ base: 250, xl: 350 }}
             bgColor={"white"}
             rounded={"xl"}
+            overflow={"hidden"}
           >
-            <Image src="" alt="" />
+            <Image
+              src="https://i.ibb.co/bWqjyXW/groom.jpg"
+              alt=""
+              width={"100%"}
+            />
           </Box>
           <VStack gap={3}>
             <Heading fontWeight={400}>raka gumilang</Heading>
@@ -64,8 +69,13 @@ const BrideGroom = () => {
             h={{ base: 250, xl: 350 }}
             bgColor={"white"}
             rounded={"xl"}
+            overflow={"hidden"}
           >
-            <Image src="" alt="" />
+            <Image
+              src="https://i.ibb.co/0V1MppS/bride.jpg"
+              alt=""
+              width={"100%"}
+            />
           </Box>
           <VStack gap={3}>
             <Heading fontWeight={400}>vina sriayuni</Heading>

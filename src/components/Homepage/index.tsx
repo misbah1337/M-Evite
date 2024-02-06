@@ -25,7 +25,7 @@ const HomePageComponent = () => {
       <ModalOpening isOpen={isOpen} onClose={onClose} />
       <Header />
       <Hero />
-      <ShareBanner />
+      {/* <ShareBanner /> */}
       <BrideGroom />
       <GalleryOnePhoto />
       <WeddingDetails />
