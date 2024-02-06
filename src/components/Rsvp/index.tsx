@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Button,
   Flex,
@@ -9,11 +8,24 @@ import {
   Input,
   Stack,
   Text,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
+import { useState } from "react";
 
 const Rsvp = () => {
   const [attendance, setAttendance] = useState("I'll be there");
+  const toast = useToast();
+
+  const handleRsvp = () => {
+    toast({
+      title: "RSVP Sent",
+      description: "Your RSVP has been successfully sent.",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+  };
 
   return (
     <Stack bgColor={"#EEECE6"}>
@@ -42,7 +54,10 @@ const Rsvp = () => {
       </Flex>
 
       <form
-        onSubmit={() => {}}
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleRsvp();
+        }}
         style={{
           width: "350px",
           margin: "auto",
@@ -134,6 +149,7 @@ const Rsvp = () => {
             </FormControl>
           )}
           <Button
+            type="submit"
             rounded={"none"}
             border={"1px solid gray"}
             bgColor={"transparent"}
