@@ -24,14 +24,28 @@ const HomePageComponent = () => {
     <>
       <ModalOpening isOpen={isOpen} onClose={onClose} />
       <Header />
-      <Hero />
+      <section id="home">
+        <Hero />
+      </section>
       {/* <ShareBanner /> */}
-      <BrideGroom />
-      <GalleryOnePhoto />
-      <WeddingDetails />
-      <GalleryTwoPhotos />
-      <Rsvp />
-      <Gift />
+      <section>
+        <BrideGroom />
+      </section>
+      <section>
+        <GalleryOnePhoto />
+      </section>
+      <section id="wedding">
+        <WeddingDetails />
+      </section>
+      <section id="gallery">
+        <GalleryTwoPhotos />
+      </section>
+      <section id="rsvp">
+        <Rsvp />
+      </section>
+      <section>
+        <Gift />
+      </section>
       <Footer />
     </>
   );
