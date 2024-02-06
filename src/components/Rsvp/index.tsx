@@ -11,6 +11,7 @@ import {
   useToast,
   VStack,
 } from "@chakra-ui/react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 const Rsvp = () => {
@@ -33,6 +34,11 @@ const Rsvp = () => {
     // Mengosongkan nilai input form
     reset();
   };
+
+  // Set default value to "I'll be there" when component mounts
+  useEffect(() => {
+    setValue("attendance", "I'll be there");
+  }, [setValue]);
 
   return (
     <Stack bgColor={"#EEECE6"}>
