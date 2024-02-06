@@ -11,13 +11,17 @@ import {
   useToast,
   VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 const Rsvp = () => {
-  const [attendance, setAttendance] = useState("I'll be there");
+  const { register, handleSubmit, reset, watch, setValue } = useForm();
   const toast = useToast();
+  const attendance = watch("attendance");
 
-  const handleRsvp = () => {
+  const onSubmit = () => {
+    // Lakukan proses RSVP di sini
+
+    // Menampilkan pesan toast
     toast({
       title: "RSVP Sent",
       description: "Your RSVP has been successfully sent.",
@@ -25,6 +29,9 @@ const Rsvp = () => {
       duration: 5000,
       isClosable: true,
     });
+
+    // Mengosongkan nilai input form
+    reset();
   };
 
   return (
@@ -54,10 +61,7 @@ const Rsvp = () => {
       </Flex>
 
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleRsvp();
-        }}
+        onSubmit={handleSubmit(onSubmit)}
         style={{
           width: "350px",
           margin: "auto",
@@ -72,6 +76,7 @@ const Rsvp = () => {
               type="text"
               placeholder="Type your full name"
               textTransform={"uppercase"}
+              {...register("fullName", { required: true })}
             />
           </FormControl>
           <FormControl>
@@ -80,6 +85,7 @@ const Rsvp = () => {
               type="number"
               placeholder="Type your phone number"
               textTransform={"uppercase"}
+              {...register("phoneNumber", { required: true })}
             />
           </FormControl>
           <FormControl>
@@ -93,7 +99,7 @@ const Rsvp = () => {
                   attendance === "I'll be there" ? "#E1DFD9" : "transparent"
                 }
                 textTransform={"uppercase"}
-                onClick={() => setAttendance("I'll be there")}
+                onClick={() => setValue("attendance", "I'll be there")}
                 _hover={{
                   backgroundColor: "#E1DFD9",
                 }}
@@ -108,7 +114,7 @@ const Rsvp = () => {
                   attendance === "Can't come" ? "#E1DFD9" : "transparent"
                 }
                 textTransform={"uppercase"}
-                onClick={() => setAttendance("Can't come")}
+                onClick={() => setValue("attendance", "Can't come")}
                 _hover={{
                   backgroundColor: "#E1DFD9",
                 }}
