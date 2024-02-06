@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Divider,
@@ -9,6 +10,19 @@ import {
 } from "@chakra-ui/react";
 
 const Gift = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyNumber = () => {
+    const bankNumber = "783947891847565";
+    navigator.clipboard
+      .writeText(bankNumber)
+      .then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 3000);
+      })
+      .catch((err) => console.error("Failed to copy:", err));
+  };
+
   return (
     <Stack h={{ base: "60vh", xl: "50vh" }} bgColor={"#EEECE6"}>
       <Divider
@@ -37,6 +51,7 @@ const Gift = () => {
             783947891847565
           </Text>
           <Button
+            onClick={handleCopyNumber}
             rounded={"none"}
             border={"1px solid gray"}
             bgColor={"transparent"}
@@ -45,7 +60,7 @@ const Gift = () => {
               backgroundColor: "#E1DFD9",
             }}
           >
-            Copy number
+            {copied ? "Copied!" : "Copy number"}
           </Button>
         </VStack>
       </VStack>

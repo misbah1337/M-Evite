@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Button,
   Flex,
@@ -12,6 +13,8 @@ import {
 } from "@chakra-ui/react";
 
 const Rsvp = () => {
+  const [attendance, setAttendance] = useState("I'll be there");
+
   return (
     <Stack bgColor={"#EEECE6"}>
       <Flex
@@ -52,7 +55,7 @@ const Rsvp = () => {
             <FormLabel>Full name</FormLabel>
             <Input
               type="text"
-              placeholder="type your full name"
+              placeholder="Type your full name"
               textTransform={"uppercase"}
             />
           </FormControl>
@@ -60,7 +63,7 @@ const Rsvp = () => {
             <FormLabel>Phone number</FormLabel>
             <Input
               type="number"
-              placeholder="type your phone number"
+              placeholder="Type your phone number"
               textTransform={"uppercase"}
             />
           </FormControl>
@@ -71,8 +74,11 @@ const Rsvp = () => {
                 flex={1}
                 rounded={"none"}
                 border={"1px solid gray"}
-                bgColor={"transparent"}
+                bgColor={
+                  attendance === "I'll be there" ? "#E1DFD9" : "transparent"
+                }
                 textTransform={"uppercase"}
+                onClick={() => setAttendance("I'll be there")}
                 _hover={{
                   backgroundColor: "#E1DFD9",
                 }}
@@ -83,8 +89,11 @@ const Rsvp = () => {
                 flex={1}
                 rounded={"none"}
                 border={"1px solid gray"}
-                bgColor={"transparent"}
+                bgColor={
+                  attendance === "Can't come" ? "#E1DFD9" : "transparent"
+                }
                 textTransform={"uppercase"}
+                onClick={() => setAttendance("Can't come")}
                 _hover={{
                   backgroundColor: "#E1DFD9",
                 }}
@@ -93,35 +102,37 @@ const Rsvp = () => {
               </Button>
             </Flex>
           </FormControl>
-          <FormControl>
-            <FormLabel>Number of pax</FormLabel>
-            <Flex gap={5}>
-              <Button
-                flex={1}
-                rounded={"none"}
-                border={"1px solid gray"}
-                bgColor={"transparent"}
-                textTransform={"uppercase"}
-                _hover={{
-                  backgroundColor: "#E1DFD9",
-                }}
-              >
-                1 pax
-              </Button>
-              <Button
-                flex={1}
-                rounded={"none"}
-                border={"1px solid gray"}
-                bgColor={"transparent"}
-                textTransform={"uppercase"}
-                _hover={{
-                  backgroundColor: "#E1DFD9",
-                }}
-              >
-                2 pax
-              </Button>
-            </Flex>
-          </FormControl>
+          {attendance === "I'll be there" && (
+            <FormControl>
+              <FormLabel>Number of pax</FormLabel>
+              <Flex gap={5}>
+                <Button
+                  flex={1}
+                  rounded={"none"}
+                  border={"1px solid gray"}
+                  bgColor={"transparent"}
+                  textTransform={"uppercase"}
+                  _hover={{
+                    backgroundColor: "#E1DFD9",
+                  }}
+                >
+                  1 pax
+                </Button>
+                <Button
+                  flex={1}
+                  rounded={"none"}
+                  border={"1px solid gray"}
+                  bgColor={"transparent"}
+                  textTransform={"uppercase"}
+                  _hover={{
+                    backgroundColor: "#E1DFD9",
+                  }}
+                >
+                  2 pax
+                </Button>
+              </Flex>
+            </FormControl>
+          )}
           <Button
             rounded={"none"}
             border={"1px solid gray"}
